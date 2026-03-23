@@ -1,0 +1,268 @@
+-- 1. Preview data with duplicate detection using ROW_NUMBER()
+SELECT
+    company,
+    location,
+    industry,
+    total_laid_off,
+    percentage_laid_off,
+    `date`,
+    stage,
+    country,
+    funds_raised_millions,
+    ROW_NUMBER() OVER (
+        PARTITION BY
+            company,
+            location,
+            industry,
+            total_laid_off,
+            percentage_laid_off,
+            `date`,
+            stage,
+            country,
+            funds_raised_millions
+    ) AS row_num
+FROM
+    layoffs;
+
+-- 2. Create staging table with row numbers for duplicate removal
+CREATE TABLE layoffs_staging AS
+SELECT
+    company,
+    location,
+    industry,
+    total_laid_off,
+    percentage_laid_off,
+    `date`,
+    stage,
+    country,
+    funds_raised_millions,
+    ROW_NUMBER() OVER (
+        PARTITION BY
+            company,
+            location,
+            industry,
+            total_laid_off,
+            percentage_laid_off,
+            `date`,
+            stage,
+            country,
+            funds_raised_millions
+    ) AS row_num
+FROM
+    layoffs;
+
+-- 3. View duplicate rows
+SELECT *
+FROM
+    layoffs_staging
+WHERE
+    row_num > 1;
+
+-- 4. Delete duplicates (keep the first occurrence)
+DELETE FROM layoffs_staging
+WHERE
+    row_num > 1;
+
+-- 5. Check distinct company names after duplicate removal
+SELECT DISTINCT
+    company
+FROM
+    layoffs_staging
+ORDER BY
+    1;
+
+-- 6. Inspect a specific company for consistency
+SELECT *
+FROM
+    layoffs_staging
+WHERE
+    company LIKE 'Aura%';
+
+-- 7. Examine distinct industry values
+SELECT DISTINCT
+    industry
+FROM
+    layoffs_staging
+ORDER BY
+    1;
+
+-- 8. Look at records containing 'Crypto' in industry
+SELECT *
+FROM
+    layoffs_staging
+WHERE
+    industry LIKE 'Crypto%';
+
+-- 9. Standardize 'Crypto' variations to a single value
+UPDATE layoffs_staging
+SET
+    industry = 'Crypto'
+WHERE
+    industry LIKE 'Crypto%';
+
+-- 10. Check distinct locations
+SELECT DISTINCT
+    location
+FROM
+    layoffs_staging
+ORDER BY
+    1;
+
+-- 11. Preview trimmed values for multiple columns
+SELECT
+    company,
+    TRIM(company) AS company_trimmed,
+    location,
+    TRIM(location) AS location_trimmed,
+    industry,
+    TRIM(industry) AS industry_trimmed,
+    stage,
+    TRIM(stage) AS stage_trimmed,
+    country,
+    TRIM(country) AS country_trimmed
+FROM
+    layoffs_staging;
+
+-- 12. Apply trimming to all relevant columns
+UPDATE layoffs_staging
+SET
+    company = TRIM(company),
+    location = TRIM(location),
+    industry = TRIM(industry),
+    stage = TRIM(stage),
+    country = TRIM(country);
+
+-- 13. Identify country names that include a trailing period
+SELECT DISTINCT
+    country
+FROM
+    layoffs_staging
+WHERE
+    country LIKE 'United States%'
+ORDER BY
+    1;
+
+-- 14. Remove trailing period from 'United States.' entries
+UPDATE layoffs_staging
+SET
+    country = 'United States'
+WHERE
+    country LIKE 'United States%';
+
+-- 15. Alternative method: strip trailing period using TRIM
+SELECT
+    country,
+    TRIM(TRAILING '.' FROM country) AS cleaned_country
+FROM
+    layoffs_staging
+WHERE
+    country LIKE 'United States%';
+
+-- 16. Verify distinct countries after cleaning
+SELECT DISTINCT
+    country
+FROM
+    layoffs_staging
+ORDER BY
+    1;
+
+-- 17. Find records with null or empty industry values
+SELECT *
+FROM
+    layoffs_staging
+WHERE
+    industry IS NULL
+    OR industry = ''
+ORDER BY
+    company;
+
+-- 18. Use a CTE to identify companies that have both non‑null and null industries,
+--     then populate the nulls using the non‑null value from the same company
+WITH cte AS (
+    SELECT DISTINCT
+        a.company,
+        a.industry
+    FROM
+        layoffs_staging a
+        JOIN layoffs_staging b ON a.company = b.company
+            AND a.industry != ''
+    WHERE
+        b.industry IS NULL
+        OR b.industry = ''
+)
+UPDATE layoffs_staging a
+    JOIN cte c ON c.company = a.company
+    AND a.industry = ''
+SET
+    a.industry = c.industry;
+
+-- 19. Check if any null industries remain
+SELECT
+    company
+FROM
+    layoffs_staging
+WHERE
+    industry IS NULL;
+
+-- 20. Remove rows where industry is still null (likely no usable data)
+DELETE FROM layoffs_staging
+WHERE
+    industry IS NULL;
+
+-- 21. Investigate a location with encoding issues
+SELECT DISTINCT
+    location
+FROM
+    layoffs_staging
+WHERE
+    location = 'MalmÃ¶'
+ORDER BY
+    1;
+
+-- 22. Correct the misspelled/encoded location (example fix)
+UPDATE layoffs_staging
+SET
+    location = 'MalmÃ'
+WHERE
+    location = 'MalmÃ¶';
+
+-- 23. Identify rows missing both total_laid_off and percentage_laid_off
+SELECT *
+FROM
+    layoffs_staging
+WHERE
+    total_laid_off IS NULL
+    AND percentage_laid_off IS NULL;
+
+-- 24. Delete those useless rows (cannot be used for analysis)
+DELETE FROM layoffs_staging
+WHERE
+    total_laid_off IS NULL
+    AND percentage_laid_off IS NULL;
+
+-- 25. Preview conversion of date strings to proper DATE type
+SELECT
+    `date`,
+    STR_TO_DATE(`date`, '%m/%d/%Y') AS converted_date
+FROM
+    layoffs_staging;
+
+-- 26. Apply the date conversion
+UPDATE layoffs_staging
+SET
+    `date` = STR_TO_DATE(`date`, '%m/%d/%Y');
+
+-- 27. Drop the temporary row number column
+ALTER TABLE layoffs_staging
+DROP COLUMN row_num;
+
+-- 28. Change the data type of the date column to DATE
+ALTER TABLE layoffs_staging
+MODIFY COLUMN `date` DATE;
+
+-- 29. Final check for any null dates (should be none after conversion)
+SELECT *
+FROM
+    layoffs_staging
+WHERE
+    `date` IS NULL;
