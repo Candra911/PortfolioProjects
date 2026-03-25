@@ -23,6 +23,6 @@ This project investigates the massive shift in the technology labor market follo
 
 ---
 ## 🔗 Data Source
-All data is derived from publicly reported layoff announcements between 2020 and 2023. Behind every data point is a real professional impact.
+* **Primary Dataset:** [layoffs-2020-to-2023][(https://www.kaggle.com/datasets/tanvirachowdhury/layoffs-2020-to-2023)]
 
 *Analysis by [Candra Aji](https://github.com/candra-aji)*
