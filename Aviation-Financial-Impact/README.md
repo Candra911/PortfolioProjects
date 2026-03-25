@@ -1,7 +1,7 @@
 # Global Aviation Financial Resilience & Strategic Risk Analysis (2019–2024)
 
 ## Dashboard Preview
-![Dashboard Preview](Dashboard_Preview.png)
+![Dashboard Preview](Dashboard_Preview.PNG)
 
 ## Project Objective
 This project analyzes the financial resilience of the global airline industry during major geopolitical shocks. The goal was to visualize the correlation between conflict phases, jet fuel price volatility, and the effectiveness of hedging strategies.
