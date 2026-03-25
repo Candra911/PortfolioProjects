@@ -5,7 +5,7 @@ This project investigates the massive shift in the technology labor market follo
 
 ## Project Components
 * **[🔍 SQL: Data Cleaning](./SQLDataCleaning):** Standardizing inconsistent company names and converting date formats.
-* **[📊 SQL: Exploratory Analysis](./TheGreatTechReset-SQL-Analysis.sql):** Utilizing window functions to rank cut depths and bucketing funding amounts.
+* **[📊 SQL: Exploratory Analysis](./SQLAnalysis):** Utilizing window functions to rank cut depths and bucketing funding amounts.
 * **[📄 Full Executive Report (PDF)](./TheGreatTechReset.pdf):** A deep-dive narrative shifting from growth metrics to profitability.
 
 ## Key Data Insights
