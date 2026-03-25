@@ -18,3 +18,7 @@ This project analyzes the financial resilience of the global airline industry du
 ## How to Use
 1. Download the `.xlsx` file from this folder.
 2. Open in Excel and use the **Slicers** on the left to filter by Region, Airline Type, or Conflict Phase.
+
+## 🔗 Data Sources
+* **Primary Dataset:** [Aviation Financials 2019-2024][(https://www.kaggle.com/datasets/zkskhurram/airline-ticket-prices-vs-oil-and-fuel-costs)]
+
