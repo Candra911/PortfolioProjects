@@ -4,7 +4,7 @@
 This project investigates the massive shift in the technology labor market following the post-pandemic surge. By analyzing over 2,000 layoff announcements globally, I used SQL to uncover patterns behind which companies survived and which collapsed when the era of "growth at any cost" ended.
 
 ## Project Components
-* **[🔍 SQL: Data Cleaning](./TheGreatTechReset-SQL-DataCleaning.sql):** Standardizing inconsistent company names and converting date formats.
+* **[🔍 SQL: Data Cleaning](./SQLDataCleaning):** Standardizing inconsistent company names and converting date formats.
 * **[📊 SQL: Exploratory Analysis](./TheGreatTechReset-SQL-Analysis.sql):** Utilizing window functions to rank cut depths and bucketing funding amounts.
 * **[📄 Full Executive Report (PDF)](./TheGreatTechReset.pdf):** A deep-dive narrative shifting from growth metrics to profitability.
 
