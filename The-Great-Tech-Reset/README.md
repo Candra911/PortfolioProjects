@@ -9,6 +9,7 @@ This project investigates the massive shift in the technology labor market follo
 * **[📄 Full Executive Report (PDF)](./TheGreatTechReset.pdf):** A deep-dive narrative shifting from growth metrics to profitability.
 
 ## Key Data Insights
+* **[The Data](./TheGreatTechReset-DataFinding.pdf):** This are the primary data insights derived from the dataset.
 * **The Funding Myth:** Raising massive capital did not guarantee safety; companies like Quibi ($1.8B) and BlockFi ($1B) collapsed despite having significant cash reserves.
 * **The "Tech Winter" Timeline:** While the pandemic shock occurred in March 2020 (~28,000 layoffs), the true peak hit in January 2023 with over 84,700 layoffs—a 300% increase.
     * **Small Startups (<$50M raised):** Average layoff of 1 out of every 3 employees.
