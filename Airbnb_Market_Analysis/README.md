@@ -41,7 +41,7 @@ This project provides a detailed analysis of Airbnb listing and calendar data to
 ---
 
 ## Project Structure
-* `data/`: Contains the raw Excel datasets (Listings & Calendar).
+* `data/`: Hyperlink to download the raw Excel datasets (Listings & Calendar).
 * `tableau/`: The `.twbx` Tableau Packaged Workbook.
 * `README.md`: Project documentation and executive summary.
 
