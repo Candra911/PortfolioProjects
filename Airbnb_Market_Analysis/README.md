@@ -36,8 +36,7 @@ This project provides a detailed analysis of Airbnb listing and calendar data to
 ---
 
 ## Dashboard Preview
-![Airbnb Dashboard Screenshot](path/to/your/image.png)
-*Note: Replace the path above with your actual uploaded image link.*
+![Airbnb Dashboard Screenshot](./AirbnbDashboard.png)
 
 ---
 
