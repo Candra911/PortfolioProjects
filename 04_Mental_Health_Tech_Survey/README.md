@@ -23,4 +23,4 @@ The core logic of this analysis reveals a powerful trend: **Environment over Gen
 * **Global Scale:** Consistent phenomenon across the US, UK, and Canada.
 
 </details>
-![Interactive Demo](./Screenshots/Dashboard_Demo.gif)
+![Interactive Demo](https://github.com/candra-aji/PortfolioProjects/blob/main/04_Mental_Health_Tech_Survey/Screenshots/Dashboard_Demo.gif).
