@@ -52,4 +52,4 @@ The **Treemap** analysis confirms that mental health interference is not localiz
 * `PowerBI/`: The complete Power BI project file.
 
 ---
-![Interactive Demo](https://github.com/candra-aji/PortfolioProjects/blob/main/04_Mental_Health_Tech_Survey/Screenshots/Dashboard_Demo.gif).
+![Interactive Demo](https://github.com/candra-aji/PortfolioProjects/blob/main/04_Mental_Health_Tech_Survey/Screenshots/Dashboard_Demo.gif)
