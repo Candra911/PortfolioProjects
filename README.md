@@ -94,9 +94,9 @@ I transitioned my initial SQL research into a comprehensive Python analysis to h
 
 ---
 
-## 🛠️ Technical Toolkit
+## Technical Toolkit
 * **Languages:** Python (Pandas, Seaborn), SQL (MySQL)
 * **BI Tools:** Power BI, Tableau
 * **Finance:** Advanced Excel (Financial Modeling, Pivot Tables)
 
-**Connect with me:** [LinkedIn](YOUR_LINKEDIN_URL) | [GitHub Profile](https://github.com/candra-aji)
+**Connect with me:** [LinkedIn](https://www.linkedin.com/in/candra-aji/?locale=en-US) | [GitHub Profile](https://github.com/candra-aji)
