@@ -1,10 +1,10 @@
-# 📊 Data Analysis Portfolio | Candra Aji
+# Data Analysis Portfolio | Candra Aji
 
 Welcome to my repository. I transform complex datasets into actionable business narratives using **Python**, **SQL**, **Power BI**, and **Financial Modeling**.
 
 ---
 
-## 🚀 Featured Project: The Great Tech Reset — AI Edition (Python)
+## Featured Project: The Great Tech Reset — AI Edition (Python)
 
 **Background Story**
 Between 2024 and 2026, the tech industry entered a new phase of restructuring. Moving beyond the "Post-Pandemic" cost-cutting of 2023, I investigated a more profound shift: **The AI Substitution Effect**. Using Python, I tracked how companies began reallocating billions in human capital budgets toward AI infrastructure, marking a fundamental "Reset" of the global workforce.
@@ -18,7 +18,7 @@ Between 2024 and 2026, the tech industry entered a new phase of restructuring. M
 
 ---
 
-## 📂 Project Directory (Click to Expand)
+## Project Directory (Click to Expand)
 
 <details>
 <summary><b>01 | The Great Tech Reset: Layoff Analysis (SQL)</b></summary>
