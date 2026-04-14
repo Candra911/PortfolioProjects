@@ -44,10 +44,10 @@ The **Mobile** segment reveals a significant "Conversion Gap." While social medi
 - **Strategic Recommendation:** Identified a 46% revenue drop in this segment, suggesting a need for mobile-UI optimization and streamlined checkout processes.
 </details>
 
-## Project Structure
-- `01_SQL_Queries/`: BigQuery scripts used to unnest and aggregate GA360 data.
-- `02_Visuals/`: PDF exports and high-resolution screenshots of the dashboard.
-- `03_Cleaned_Data/`: Sample CSV exports of the cleaned "Medium" categories.
+## Project Folder
+- `SQL_Queries/`: BigQuery scripts used to unnest and aggregate GA360 data.
+- `Visuals/`: PDF exports and high-resolution screenshots of the dashboard.
+- `Cleaned_Data/`: Sample CSV exports of the cleaned "Medium" categories.
 
 ## Conclusion
 By implementing cross-filtering and automated data cleaning, this dashboard provides a 360-degree view of the e-commerce funnel. It proves that while the business has strong brand loyalty, there is significant untapped revenue potential in the mobile user experience.
